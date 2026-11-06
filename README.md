@@ -75,7 +75,7 @@ Notes:
   python -m qwen_text_distill.train_distill --config qwen_text_distill/configs/rs5m_qwen_text_distill.yaml
   ```
   
-  Note: The distilled `best_student.pt` is retrained on your machine and may not be completely identical to the weights provided in this text. Also: A similar open-source  openclip ViT-B-32 checkpoint (HuggingFace `WineDuck/openclip-rs5m`) can be found in public channels for RS5M CLIP weights, but it is not the exact same file  as `RS5M_ViT-B-32_RET-2.pt`. 
+  Note: Both `weights/RS5M_ViT-B-32_RET-2.pt` and `weights/best_student.pt` are already included in the project folder in the versions used in this paper; please use these included files directly for paper reproduction. If you retrain `best_student.pt` on your machine, the resulting weights may not be completely consistent with the included paper version. In addition, a similar OpenCLIP ViT-B-32 checkpoint for RS5M CLIP weights is publicly available on HuggingFace (`WineDuck/openclip-rs5m`), but it is not the same file as `RS5M_ViT-B-32_RET-2.pt`; for exact reproduction, please use the version included in this project.
 
 ## 3. Environment Installation
 
