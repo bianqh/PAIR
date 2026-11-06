@@ -1,0 +1,10 @@
+# 安装: pip install -r requirements.txt
+# torch / torchvision 请按本机 CUDA 版本从 https://pytorch.org 安装对应 whl（此处只列包名）
+torch
+torchvision
+open_clip_torch
+transformers>=4.51   # Qwen3 架构需要
+safetensors
+pyyaml
+Pillow
+numpy

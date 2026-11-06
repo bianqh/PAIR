@@ -1,0 +1,50 @@
+output_dir: outputs/qwen_text_distill
+
+teacher_model_name: ViT-B-32
+teacher_weight_path: weights/RS5M_ViT-B-32_RET-2.pt
+qwen_model_name_or_path: weights
+qwen_pretrained_weight_path: weights/qwen0.6B.safetensors
+
+train_csv:
+  - datasets/pub11_train_metadata.csv
+val_csv:
+  - datasets/pub11_validation_metadata.csv
+
+text_columns:
+  - text
+  # - caption
+  # - top1_cap_ft
+  # - ssl_cap_ft
+  # - top1_cap_vanilla
+  # - ssl_cap_vanilla
+
+max_text_length: 77
+qwen_text_pooling: last
+projection_dim: 512
+
+batch_size: 64
+eval_batch_size: 256
+num_workers: 8
+epochs: 3
+lr: 1.0e-4
+weight_decay: 0.1
+betas: [0.9, 0.98]
+eps: 1.0e-8
+warmup_steps: 1000
+min_lr_ratio: 0.05
+
+amp: true
+precision: bf16
+allow_tf32: true
+device: cuda
+seed: 42
+log_interval: 200
+eval_interval: 1
+eval_steps: 2000
+max_eval_batches: 200
+grad_clip_norm: 1.0
+
+debug: false
+debug_train_samples: 2048
+debug_val_samples: 1024
+debug_epochs: 1

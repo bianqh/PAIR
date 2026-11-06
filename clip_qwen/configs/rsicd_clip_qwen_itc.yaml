@@ -1,0 +1,68 @@
+dataset_json: datasets/RSICD/dataset_rsicd.json
+image_root: datasets/RSICD/RSICD_images
+output_dir: outputs/rsicd_clip_qwen_progressive
+train_split: train
+eval_split: test
+
+model_type: clip_qwen
+pretrained_weight_path: weights/RS5M_ViT-B-32_RET-2.pt
+qwen_model_name_or_path: weights
+qwen_weight_path: weights/best_student.pt
+checkpoint: ""
+
+model_name: ViT-B-32
+text_source: sentence
+loss_name: itc
+
+image_size: 224
+max_text_length: 256
+projection_dim: 512
+qwen_text_pooling: last
+
+batch_size: 32
+eval_batch_size: 128
+num_workers: 8
+epochs: 20
+lr: 1.0e-5
+min_lr_ratio: 0.01
+weight_decay: 0.1
+betas: [0.9, 0.98]
+eps: 1.0e-8
+warmup_epochs: 2.0
+optimizer: adamw
+scheduler: cosine
+
+amp: true
+precision: bf16
+allow_tf32: true
+
+seed: 42
+grad_clip_norm: 1.0
+log_interval: 20
+eval_interval: 1
+device: cuda
+pin_memory: true
+
+chunk_size: 1024
+topk: 10
+save_topk: true
+save_embeddings: false
+
+logit_scale_max: 50.0
+
+use_progressive_dialogue: true
+max_progressive_rounds: 4
+eval_progressive_rounds: 4
+progressive_dialogue_seed: 42
+
+use_dataset_neg_attrs: true
+negation_train_prob: 0.5
+negation_train_min_attrs: 1
+negation_train_max_attrs: 4
+negation_eval_topn: 4
+
+debug: false
+debug_train_samples: 256
+debug_eval_images: 64
+debug_eval_texts: 320
+debug_epochs: 1

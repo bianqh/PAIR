@@ -1,0 +1,52 @@
+dataset_json: datasets/RSITMD/dataset_RSITMD_with_content.json
+image_root: ""
+output_dir: outputs/rsitmd_vitb32_sdm
+pretrained_weight_path: weights/RS5M_ViT-B-32_RET-2.pt
+checkpoint: ""
+
+model_name: ViT-B-32
+text_source: sentence
+loss_name: sdm
+
+image_size: 224
+max_text_length: 77
+
+batch_size: 128
+eval_batch_size: 256
+num_workers: 8
+epochs: 20
+lr: 1.0e-6
+min_lr_ratio: 0.01
+weight_decay: 0.1
+betas: [0.9, 0.98]
+eps: 1.0e-8
+warmup_epochs: 2.0
+optimizer: adamw
+scheduler: cosine
+
+amp: true
+precision: bf16
+allow_tf32: true
+
+seed: 42
+grad_clip_norm: 1.0
+log_interval: 20
+eval_interval: 1
+save_interval: 1
+device: cuda
+pin_memory: true
+
+chunk_size: 1024
+topk: 10
+save_topk: true
+save_embeddings: false
+
+logit_scale_max: 50.0
+sdm_factor: 0.3
+sdm_epsilon: 1.0e-8
+
+debug: false
+debug_train_samples: 256
+debug_eval_images: 64
+debug_eval_texts: 320
+debug_epochs: 1

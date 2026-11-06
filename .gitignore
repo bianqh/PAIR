@@ -1,0 +1,29 @@
+# IDE and editor files
+.idea/
+.vscode/
+*.iml
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Runtime outputs and logs
+outputs/
+tmp/
+*.log
+
+# Model weights and local data
+weights/
+*.pt
+*.pth
+*.safetensors
+datasets/RSITMD/images/
+datasets/RSICD/RSICD_images/
+datasets/RS5M_meta/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
